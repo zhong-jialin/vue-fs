@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <h2>liebiao</h2>
+    <input placeholder="input name" type="text" v-model="keyWord">
+    <ul>
+        <li :key="index" v-for="(p,index) of filPersons">
+            {{p.name}}-{{p.age}}-{{p.sex}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    new Vue({
+        el: "#app",
+        data: {
+            keyWord: '',
+            sortType: 0,
+            persons: [
+                {id: '1', name: 'tom', age: 11, sex: 'feman'},
+                {id: '2', name: 'jor', age: 11, sex: 'feman'},
+                {id: '3', name: 'faw', age: 11, sex: 'man'},
+                {id: '4', name: 'waf', age: 11, sex: 'man'}
+            ]
+        },
+        computed: {
+            filPersons() {
+                return this.persons.filter((p) => {
+                    return p.name.indexOf(this.keyWord) !== -1
+                })
+            }
+        },
+        methods: {}
+
+    })
+</script>
+</body>
+</html>

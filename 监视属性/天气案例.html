@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <h1>今天天气很{{info}}</h1>
+  <button @click="change">切换天气</button>
+  <hr/>
+  <h3>a的值是{{numbers.a}}</h3>
+  <button @click="numbers.a++">+1</button>
+  <hr/>
+  <h3>a的值是{{numbers.b}}</h3>
+  <button @click="numbers.b++">+1</button>
+</div>
+<script type="text/javascript">
+  Vue.config.productionTip = false;
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      isHot: true,
+      numbers: {
+        a: 1,
+        b: 1
+      }
+    },
+    methods: {
+      change() {
+        this.isHot = !this.isHot
+      }
+    },
+    computed: {
+      info() {
+        return this.isHot ? '炎热' : '凉爽'
+      }
+    },
+    watch: {
+      isHot: {
+        handler() {
+          console.log('ishot 被修改')
+        }
+      },
+      numbers: {
+        //开启深度监视
+        deep: true,
+        handler() {
+          console.log('number变')
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

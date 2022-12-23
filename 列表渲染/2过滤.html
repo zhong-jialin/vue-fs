@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <h2>person list</h2>
+    <input placeholder="请输入名字" type="text" v-model="keyword">
+    <ul>
+        <li :key="index" v-for="(p,index) of filPerons">
+            {{p.name}}-{{p.age}}-{{p.sex}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    // const vm = new Vue({
+    //   el: "#app",
+    //   data: {
+    //     keyword:'',
+    //     message: "内容·1",
+    //     persons:[
+    //       {id:'1',name:'make',age:11,sex:'feman'},
+    //       {id:'2',name:'joe',age:13,sex:'man'},
+    //       {id:'3',name:'you',age:15,sex:'feman'},
+    //       {id:'4',name:'too',age:15,sex:'man'},
+    //     ],
+    //     filPerons:[]
+    //   },
+    //   watch:{
+    //     keyword:{
+    //       //默认执行
+    //       immediate:true,
+    //       handler(val){
+    //         this.filPerons = this.persons.filter((p)=>{
+    //           return p.name.indexOf(val) !== -1
+    //         })
+    //       }
+    //     }
+    //   }
+    // })
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            keyword: '',
+            persons: [
+                {id: '1', name: 'make', age: 11, sex: 'feman'},
+                {id: '2', name: 'joe', age: 13, sex: 'man'},
+                {id: '3', name: 'you', age: 15, sex: 'feman'},
+                {id: '4', name: 'too', age: 15, sex: 'man'},
+            ],
+            computed: {
+                filPerons() {
+                    return this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyword) !== -1
+                    })
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <h1>message:{{message}}1</h1>
+  <button v-on:click="showinfo">点我提示信息</button>
+</div>
+<script type="text/javascript">
+  Vue.config.productionTip = false;
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      message: "内容·22"
+    },
+    methods: {
+      showinfo() {
+      }
+    }
+  })
+</script>
+</body>
+</html>

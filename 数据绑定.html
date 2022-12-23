@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  单项数据绑定 <input :value="message" type="text">
+  双向数据绑定 <input type="text" v-model="message">
+  <!--  双向绑定只能用在表单上-->
+</div>
+<script type="text/javascript">
+    const v = new Vue({
+        // el: "#app",
+        data: {
+            message: "配置数据"
+        }
+    })
+    console.log(v)
+    setTimeout(() => {
+        v.$mount('#app')
+    }, 1000);
+</script>
+</body>
+</html>

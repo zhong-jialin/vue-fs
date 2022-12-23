@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <style>
+    .happy {
+      background-color: rgb(204, 118, 118);
+    }
+  </style>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+  <div :class="mood" @click="changeclass" class="basic">{{message}}</div>
+  <div :class="arr" class="basic">{{message}}</div>
+    <div :class="classObj" class="basic">{{message}}</div>
+    <div :style="styleOBj" class="basic">{{message}}</div>
+</div>
+<script type="text/javascript">
+  Vue.config.productionTip = false;
+  const vm = new Vue({
+    el: "#app",
+    data: {
+        message: "内容·1",
+        mood: "normal",
+        arr: ['a1', 'a2'],
+        classObj: {
+            a1: false,
+            a2: false,
+            a3: true
+        },
+        styleOBj: {
+            fontSize: '40px'
+        }
+    },
+    methods: {
+      changeclass() {
+        const arr = ["happy", "sad", "normal"];
+        const index = Math.floor(Math.random() * 3);
+        this.mood = arr[index];
+      },
+    },
+  });
+</script>
+</body>
+</html>

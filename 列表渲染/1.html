@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <h2>person list</h2>
+    <h2>遍历数组</h2>
+    <button @click="add">添加一个人员</button>
+    <ul>
+        <li :key="index" v-for="(p,index) of persons">
+            {{p.name}}-{{p.age}}
+            <input type="text">
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            message: "内容·1",
+            persons: [
+                {id: '1', name: 'make', age: 11},
+                {id: '2', name: 'joe', age: 13},
+                {id: '3', name: 'you', age: 15}
+            ]
+        },
+        methods: {
+            add() {
+                const p = {id: '4', name: 'liu', age: 11}
+                this.persons.push(p)
+            }
+        }
+    })
+</script>
+</body>
+</html>

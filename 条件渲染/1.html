@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <h2>当前的值是{{n}}</h2>
+    <button @click="n++">点我n+1</button>
+    <div v-if="n === 1">Angular</div>
+    <div v-else-if="n === 2">react</div>
+    <div v-else-if="n === 3">vue</div>
+    1ssassawV
+</div>
+<script type="text/javascript">
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            message: "内容·1",
+            n: 0
+        },
+        methods: {
+        }
+    })
+</script>
+</body>
+</html>
