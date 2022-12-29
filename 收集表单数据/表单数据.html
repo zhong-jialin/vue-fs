@@ -9,7 +9,7 @@
 <body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <div id="app">
-    <form >
+    <form @submit.prevent="demo">
         <label for="demo">user : </label><input id="demo" type="text" v-model="account">
         <br><br>
         password:<input type="password" v-model="password">
@@ -30,7 +30,7 @@
         <br><br>
         其他信息：
         <textarea v-model="other"></textarea><br>
-        <input type="checkbox">reading and accett<a href="https://www.baidu.com">用户协议</a><br>
+        <input v-model="agree" type="checkbox">reading and accett<a href="https://www.baidu.com">用户协议</a><br>
         <button>cummit</button>
     </form>
 </div>
@@ -43,10 +43,14 @@
             sex:'man',
             hobby:[],
             city:'shanghai',
-            other:''
+            other:'',
+            agree:false
 
         },
         methods: {
+            demo(){
+                    console.log(JSON.stringify(this._data))
+            }
         }
     })
 </script>
