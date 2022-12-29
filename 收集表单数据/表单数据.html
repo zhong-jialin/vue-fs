@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id="app">
+    <form >
+        <label for="demo">user : </label><input id="demo" type="text" v-model="account">
+        <br><br>
+        password:<input type="password" v-model="password">
+        <br><br>
+        sex:
+        man : <input type="radio" name="sex" v-model="sex" value="man">
+        wemen : <input type="radio" name="sex" v-model="sex" value="weman"> <br>
+        hobbit:
+        game: <input type="checkbox" name="" value="game"  v-model="hobby">
+        eat: <input type="checkbox" name=""  value="eat" v-model="hobby">
+        study: <input type="checkbox" name=""value="study" v-model="hobby"><br><br>
+        select localiton:
+        <select name="" v-model="city">
+            <option  value="">请选择校区</option>
+            <option  value="beijing">beijing</option>
+            <option value="shanghai">shagnhai</option>
+        </select>
+        <br><br>
+        其他信息：
+        <textarea v-model="other"></textarea><br>
+        <input type="checkbox">reading and accett<a href="https://www.baidu.com">用户协议</a><br>
+        <button>cummit</button>
+    </form>
+</div>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            account: "",
+            password:'',
+            sex:'man',
+            hobby:[],
+            city:'shanghai',
+            other:''
+
+        },
+        methods: {
+        }
+    })
+</script>
+</body>
+</html>
